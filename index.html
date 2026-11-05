@@ -257,32 +257,6 @@ img.bleed{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
 }
 
 
-/* ── Intel guest-speaker question (ch14_survey.py) ── */
-.iv-card{display:flex; align-items:center; gap:1rem; margin-top:clamp(.7rem,1.6vh,1.1rem); background:#fbf8f1; border:var(--t14-frame); outline:var(--t14-rule); outline-offset:-5px;
-  border-left:4px solid var(--gold); border-radius:10px; box-shadow:var(--shadow); padding:.7rem 1rem;}
-.iv-txt{flex:1; display:flex; flex-direction:column; gap:.15rem;}
-.iv-txt b{font:800 .72rem 'Inter',sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--gold);}
-.iv-txt span{font:400 clamp(.95rem,1.3vw,1.12rem)/1.4 'Merriweather',serif; color:#1f2a2b;}
-.iv-btn{font:800 clamp(.74rem,.95vw,.86rem) 'Inter',sans-serif; color:#fffaf0; background:var(--accent,#3f5a52); border:0; border-radius:999px; padding:.5rem 1.1rem; cursor:pointer; white-space:nowrap;}
-.iv-btn.ghost{background:#fffdf8; color:var(--accent,#3f5a52); box-shadow:inset 0 0 0 1.5px currentColor;}
-.iv-btn:disabled{opacity:.45; cursor:default;}
-.iv-host{font:600 .8rem 'Inter',sans-serif; color:#5d625c;} .iv-host b{font:900 1rem 'Merriweather',serif; color:#1f2a2b;}
-.iv-ov{position:fixed; inset:0; z-index:220; display:none; align-items:center; justify-content:center; background:rgba(20,24,22,.66); padding:4vh 4vw;}
-.iv-ov.on{display:flex;}
-.iv-pan{position:relative; width:min(40rem,92vw); max-height:88vh; overflow:auto; background:#fbf8f1; border-radius:12px; outline:1px solid rgba(165,120,44,.5); outline-offset:-7px;
-  box-shadow:0 30px 80px rgba(0,0,0,.45); padding:1.6rem 1.8rem 1.4rem; --accent:#3f5a52;}
-.iv-x{position:absolute; top:.5rem; right:.7rem; font:400 1.7rem/1 'Inter',sans-serif; color:#2e2c25; background:transparent; border:0; cursor:pointer;}
-.iv-k{font:800 .72rem 'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; color:#a5782c; margin-bottom:.4rem;}
-.iv-q{display:block; margin:0 0 .8rem; font:900 clamp(1.1rem,1.7vw,1.4rem)/1.35 'Merriweather',serif; color:#1f2a2b;}
-.iv-ta{width:100%; box-sizing:border-box; font:400 1rem/1.5 'Merriweather',serif; color:#1f2a2b; background:#fffdf8; border:1.5px solid #d8ccae; border-radius:8px; padding:.7rem .8rem; resize:vertical;}
-.iv-ta:focus{outline:none; border-color:#a5782c;}
-.iv-row{display:flex; align-items:center; justify-content:space-between; margin-top:.7rem;}
-.iv-left{font:600 .74rem 'Inter',sans-serif; color:#8c8d82;}
-.iv-count{font:400 1rem 'Merriweather',serif; color:#3b3a33; margin-bottom:.7rem;} .iv-count b{font-weight:900; font-size:1.6rem; color:#3f5a52;}
-.iv-hb{display:flex; gap:.4rem; flex-wrap:wrap;}
-.iv-list{margin:.9rem 0 0; padding-left:1.4rem; font:400 .98rem/1.5 'Merriweather',serif; color:#1f2a2b;} .iv-list li{margin-bottom:.35rem;}
-.iv-note,.iv-msg{margin:.8rem 0 0; font:italic 400 .84rem 'Merriweather',serif; color:#5d625c;}
-
 /* ── title plate (intel_title.py) ── */
 .title-slide .iv-svg{position:absolute; inset:0; width:100%; height:100%; display:block;}
 .title-slide.ivt .title-scrim{background:linear-gradient(90deg, rgba(5,8,15,.92) 0%, rgba(5,8,15,.66) 34%, rgba(5,8,15,.1) 60%, rgba(5,8,15,0) 100%);}
@@ -366,6 +340,13 @@ img.bleed{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
 .iq-sord{flex:none; width:2.6rem; font:italic 700 clamp(1rem,1.5vw,1.3rem) 'Merriweather',serif; color:#a5782c;}
 .iq-stxt{flex:1; font:700 clamp(.95rem,1.45vw,1.25rem)/1.4 'Merriweather',serif; color:#1f2a2b;}
 .iq-spts{flex:none; font:400 .9rem 'Merriweather',serif; font-style:italic; color:#5d625c;} .iq-spts b{font-style:normal; font-weight:900; color:var(--accent);}
+/* more than four picks: the summary runs in two columns with tighter type */
+.iq-sum.many{width:min(74rem,100%); padding:clamp(1.1rem,3vh,1.9rem) clamp(1.4rem,2.6vw,2.4rem);}
+.iq-sum.many .iq-srows{display:grid; grid-template-columns:1fr 1fr; grid-auto-flow:column; column-gap:clamp(1.2rem,2.4vw,2.2rem);}
+.iq-sum.many .iq-srow{padding:clamp(.45rem,1.1vh,.7rem) 0;}
+.iq-sum.many .iq-stxt{font-size:clamp(.8rem,1.1vw,1rem);}
+.iq-sum.many .iq-sord{width:2.2rem; font-size:clamp(.9rem,1.25vw,1.1rem);}
+.iq-root.ending .iq-head{opacity:.25;}
 @media (prefers-reduced-motion: reduce){ .iq-feat,.iq-sum,.iq-list{transition:none !important;} .iq-feat.settled{animation:none;} }
 @media(max-width:900px){ .iq-list{grid-template-columns:1fr; overflow:auto;} .iq-bar{flex-wrap:wrap;} }
 
@@ -656,62 +637,9 @@ body{background:#1b211f;}
     </div>
     <div class="an-list"><div class="an-row"><span class="an-num">1</span><div class="an-main"><div class="an-name">InQuizitive: Chapter 14</div><div class="an-detail">Norton adaptive practice: Energy Alternatives.</div></div><div class="an-due"><span class="an-due-lbl">Due</span><span class="an-due-val">Sunday</span></div></div><div class="an-row"><span class="an-num">2</span><div class="an-main"><div class="an-name">Harmonize WWYD Discussion #3</div><div class="an-detail">“What Would You Do?” discussion on Harmonize: post your first response by Friday, then finish your replies by Sunday.</div></div><div class="an-due"><span class="an-due-lbl">Due</span><span class="an-due-val">First post Friday · All posts Sunday</span></div></div><div class="an-row"><span class="an-num">3</span><div class="an-main"><div class="an-name">Module 5 – Energy Transitions Canvas Quiz</div><div class="an-detail">The Module 5 quiz on Canvas.</div></div><div class="an-due"><span class="an-due-lbl">Due</span><span class="an-due-val">Sunday</span></div></div></div>
     
-    <div class="iv-card" data-iv data-iv-id="ch14-intel-questions"><div class="iv-txt"><b>Guest speakers from Intel</b><span>What question would you like to ask our guest speakers from Intel?</span></div><button type="button" class="iv-btn" data-iv-open>Submit a question</button><span class="iv-host" data-iv-host hidden><b data-iv-n>0</b> questions in</span></div>
     <div class="an-att" data-at-bar hidden><button class="an-att-btn" type="button" data-at-open>Attendance</button><select class="an-att-sel" data-at-section aria-label="Class section"><option value="MWF0905">MWF 9:05 am</option><option value="MWF1220">MWF 12:20 pm</option><option value="TTH1200">TTh 12:00 pm</option></select><button class="an-att-btn go" type="button" data-at-finalize hidden>Submit Attendance</button><button class="an-att-cancel" type="button" data-at-cancel hidden>Cancel</button><button class="an-att-cancel" type="button" data-at-clear hidden>Clear last roll call</button><span class="an-att-status" data-at-status></span></div>
   </div>
   <div class="footer"></div>
-<script>(function(){
-  var C=document.currentScript.closest('section').querySelector('[data-iv]'); if(!C||C.__iv) return; C.__iv=1;
-  if(!window.__deckLiveReady){ window.__deckLiveReady=new Promise(function(r){ window.__deckLiveResolve=r; }); }
-  var ID=C.getAttribute('data-iv-id'), Q="What question would you like to ask our guest speakers from Intel?", backend=null, HOST=false, doc={}, ov=null, shown=false, msg='';
-  var PK=(function(){ try{ var k=localStorage.getItem('iv-pk'); if(!k){ k='s'+Math.random().toString(36).slice(2,10); localStorage.setItem('iv-pk',k); } return k; }catch(e){ return 's'+Math.random().toString(36).slice(2,10); } })();
-  function esc(t){ return String(t).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
-  function sess(){ return doc.session||0; }
-  function all(){ var v=doc.qs||{}, o=[]; for(var k in v){ if(v[k]&&v[k].s===sess()&&String(v[k].t||'').trim()) o.push(v[k]); } o.sort(function(a,b){ return (a.ts||0)-(b.ts||0); }); return o; }
-  function mineDone(){ try{ return localStorage.getItem('iv-done:'+ID)===String(sess()); }catch(e){ return false; } }
-  function text(){ var L=['SOS 110, Chapter 14: questions for our guest speakers from Intel','Responses: '+all().length,'',Q,''];
-    all().forEach(function(r,i){ L.push((i+1)+'. '+String(r.t).trim()); }); return L.join('\n'); }
-  function keys(e){ if(e.key==='Escape'){ e.preventDefault(); e.stopPropagation(); close(); return; }
-    if(e.target&&e.target.closest&&e.target.closest('textarea')) { e.stopPropagation(); return; }
-    if(['ArrowRight','ArrowLeft','ArrowUp','ArrowDown','PageUp','PageDown',' ','Home','End'].indexOf(e.key)>-1) e.stopPropagation(); }
-  function close(){ if(!ov) return; ov.classList.remove('on'); window.removeEventListener('keydown',keys,true); }
-  function body(){ if(!ov) return; var b=ov.querySelector('[data-ivb]');
-    if(HOST){ var a=all();
-      b.innerHTML='<div class="iv-k">Questions for our Intel guests</div><p class="iv-q">'+esc(Q)+'</p><div class="iv-count"><b>'+a.length+'</b> '+(a.length===1?'question':'questions')+' so far</div>'
-        +'<div class="iv-hb"><button type="button" class="iv-btn" data-iv-show>'+(shown?'Hide the questions':'Show the questions')+'</button><button type="button" class="iv-btn ghost" data-iv-mail>Email me the questions</button>'
-        +'<button type="button" class="iv-btn ghost" data-iv-copy>Copy</button><button type="button" class="iv-btn ghost" data-iv-reset>Reset</button></div>'
-        +(shown? '<ol class="iv-list">'+a.map(function(r){ return '<li>'+esc(r.t)+'</li>'; }).join('')+'</ol>' : '<p class="iv-note">The questions stay off the screen until you choose to show them.</p>')
-        +'<p class="iv-msg" data-iv-msg>'+esc(msg)+'</p>';
-      b.querySelector('[data-iv-show]').onclick=function(){ shown=!shown; body(); };
-      b.querySelector('[data-iv-copy]').onclick=function(){ try{ navigator.clipboard.writeText(text()); msg='Copied to your clipboard.'; }catch(e){ msg='Copy failed.'; } body(); };
-      b.querySelector('[data-iv-reset]').onclick=function(){ if(confirm('Clear every question and let students submit again?')) backend.mergeDoc('polls',ID,{session:Date.now()}); };
-      b.querySelector('[data-iv-mail]').onclick=function(){ var t=text(), url=(window.SURVEY_MAIL_URL||'').trim();
-        if(!url){ try{ navigator.clipboard.writeText(t); }catch(e){} window.open('mailto:?subject='+encodeURIComponent('SOS 110: questions for Intel')+'&body='+encodeURIComponent(t.slice(0,1500)),'_blank'); msg='No mailer is set up, so the list was copied and a draft opened.'; body(); return; }
-        msg='Sending…'; body();
-        fetch(url,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({kind:'intel-questions',gameId:ID,summary:{n:all().length},text:t})})
-          .then(function(){ msg='Sent. The questions should arrive in a minute.'; body(); }).catch(function(){ try{ navigator.clipboard.writeText(t); }catch(e){} msg='The mailer could not be reached; the list is in your clipboard.'; body(); }); };
-      return; }
-    if(mineDone()){ b.innerHTML='<div class="iv-k">Thank you</div><p class="iv-q">Your question is in. It goes to your instructor, not the screen.</p>'; return; }
-    b.innerHTML='<div class="iv-k">Quick survey &middot; one question</div><label class="iv-q" for="iv-ta">'+esc(Q)+'</label>'
-      +'<textarea id="iv-ta" class="iv-ta" maxlength="300" rows="4" placeholder="Type your question for the speakers"></textarea>'
-      +'<div class="iv-row"><span class="iv-left" data-iv-left>300 characters left</span><button type="button" class="iv-btn" data-iv-send disabled>Submit</button></div>';
-    var ta=b.querySelector('textarea'), go=b.querySelector('[data-iv-send]'), left=b.querySelector('[data-iv-left]');
-    ta.addEventListener('input',function(){ left.textContent=(300-ta.value.length)+' characters left'; go.disabled=!ta.value.trim(); });
-    go.onclick=function(){ var t=ta.value.trim().slice(0,300); if(!t||!backend) return; var o={qs:{}}; o.qs[PK]={t:t,s:sess(),ts:Date.now()};
-      backend.mergeDocShard('polls',ID,o); try{ localStorage.setItem('iv-done:'+ID,String(sess())); }catch(e){} body(); paint(); };
-    setTimeout(function(){ ta.focus(); },60); }
-  function open(){ if(!ov){ ov=document.createElement('div'); ov.className='iv-ov'; ov.setAttribute('role','dialog'); ov.setAttribute('aria-modal','true');
-      ov.innerHTML='<div class="iv-pan"><button type="button" class="iv-x" aria-label="Close">&times;</button><div data-ivb></div></div>'; document.body.appendChild(ov);
-      ov.querySelector('.iv-x').onclick=close; ov.addEventListener('click',function(e){ if(e.target===ov) close(); }); }
-    body(); ov.classList.add('on'); window.addEventListener('keydown',keys,true); }
-  C.querySelector('[data-iv-open]').addEventListener('click',function(e){ e.currentTarget.blur(); open(); });
-  function paint(){ var n=all().length; C.querySelector('[data-iv-n]').textContent=n; var ob=C.querySelector('[data-iv-open]');
-    if(HOST) ob.textContent='Questions ('+n+')'; else if(mineDone()) ob.textContent='Question sent ✓'; else ob.textContent='Submit a question';
-    if(ov&&ov.classList.contains('on')) body(); }
-  window.__deckLiveReady.then(function(L){ backend=L.backend; HOST=!!L.HOST; C.querySelector('[data-iv-host]').hidden=!HOST;
-    if(HOST) backend.subscribeDoc('polls',ID,function(d){ doc=d||{}; paint(); });
-    else (backend.subscribeMain||backend.subscribeDoc)('polls',ID,function(d){ doc=d||{}; paint(); }); });
-})();</script>
 </section>
 <section class="slide iq" data-type="iqvote" data-iq-id="intel-qvote" style="--accent:#3f5a52">
   <div class="iq-root" data-iq-root>
@@ -727,6 +655,7 @@ body{background:#1b211f;}
       <div class="iq-ctl">
         <button type="button" class="iq-btn" data-iq-send hidden disabled>Submit my votes</button>
         <button type="button" class="iq-btn" data-iq-reveal hidden>Reveal first pick</button>
+        <button type="button" class="iq-btn ghost" data-iq-end hidden>End and show all</button>
         <button type="button" class="iq-btn ghost" data-iq-back hidden>Back to the questions</button>
         <button type="button" class="iq-btn ghost" data-iq-reset hidden>Reset</button>
       </div>
@@ -736,15 +665,18 @@ body{background:#1b211f;}
   <script>(function(){
   var S=document.currentScript.closest('section'); if(S.__iq) return; S.__iq=1;
   if(!window.__deckLiveReady){ window.__deckLiveReady=new Promise(function(r){ window.__deckLiveResolve=r; }); }
-  var ID=S.getAttribute('data-iq-id'), QS=["What got you interested in this in the first place?", "How do you get into Intel as a Finance major, and how difficult is that path?", "How do you implement your values when it comes to making a challenging decision?", "How did you know what career path was best for you?", "Is Excel used as often as they say it is?", "Are Intel\u2019s business to business clients explicitly demanding greener chips like the Intel 18A process to lower their own carbon footprints?", "How do you find a job? Did you have to intern first?", "Is it worth it for university students to pay for a premium AI subscription (like ChatGPT Plus)? And how can one leverage AI during their college years to earn extra income or even launch a startup?"], ORD=['First pick','Second pick','Third pick'], PTS=[3,2,1];
+  var ID=S.getAttribute('data-iq-id'), QS=["What got you interested in this in the first place?", "How do you get into Intel as a Finance major, and how difficult is that path?", "How do you implement your values when it comes to making a challenging decision?", "How did you know what career path was best for you?", "Is Excel used as often as they say it is?", "Are Intel\u2019s business to business clients explicitly demanding greener chips like the Intel 18A process to lower their own carbon footprints?", "How do you find a job? Did you have to intern first?", "Is it worth it for university students to pay for a premium AI subscription (like ChatGPT Plus)? And how can one leverage AI during their college years to earn extra income or even launch a startup?"], ORD=['First pick','Second pick','Third pick','Fourth pick','Fifth pick','Sixth pick','Seventh pick','Eighth pick'],
+      SH=['1st','2nd','3rd','4th','5th','6th','7th','8th'], PTS=[3,2,1];
   var root=S.querySelector('[data-iq-root]'), list=S.querySelector('[data-iq-list]'), stage=S.querySelector('[data-iq-stage]');
   var cards=[].slice.call(S.querySelectorAll('[data-iq-q]'));
-  var bSend=S.querySelector('[data-iq-send]'), bRev=S.querySelector('[data-iq-reveal]'), bBack=S.querySelector('[data-iq-back]'), bReset=S.querySelector('[data-iq-reset]');
+  var bSend=S.querySelector('[data-iq-send]'), bRev=S.querySelector('[data-iq-reveal]'), bBack=S.querySelector('[data-iq-back]'), bEnd=S.querySelector('[data-iq-end]'), bReset=S.querySelector('[data-iq-reset]');
   var backend=null, HOST=false, doc={}, main={}, picks=[], shownStep=-1, busy=false;
   var PK=(function(){ try{ var k=localStorage.getItem('iq-pk'); if(!k){ k='s'+Math.random().toString(36).slice(2,10); localStorage.setItem('iq-pk',k); } return k; }catch(e){ return 's'+Math.random().toString(36).slice(2,10); } })();
   function esc(t){ return String(t).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
   function sess(){ return main.session||0; }
   function step(){ return main.step||0; }
+  function ended(){ return !!main.end && step()>0; }
+  function view(){ return ended() ? 100+step() : step(); }   // 1..8 = the k-th pick on stage; 100+k = all k picks
   function mine(){ try{ var o=JSON.parse(localStorage.getItem('iq-done:'+ID)||'null'); return (o&&o.s===sess())?o.p:null; }catch(e){ return null; } }
   function votes(){ var v=doc.v||{}, o=[]; for(var k in v){ var r=v[k]; if(r&&r.s===sess()&&r.p&&r.p.length) o.push(r.p); } return o; }
   function tally(){ var vs=votes(), pts=QS.map(function(){return 0;}), firsts=pts.slice(), seconds=pts.slice(), any=pts.slice();
@@ -766,8 +698,9 @@ body{background:#1b211f;}
   // ── host controls (buttons only: the clicker never reveals) ──
   bRev.addEventListener('click',function(e){ blur(e); if(!HOST||busy) return; var s=step();
     if(s===0){ var t=tally(); if(!t.n) return; backend.mergeDoc('polls',ID,{step:1,order:t.order,pts:t.pts,firsts:t.firsts,chose:t.chose,n:t.n}); }
-    else if(s<4) backend.mergeDoc('polls',ID,{step:s+1}); });
-  bBack.addEventListener('click',function(e){ blur(e); if(HOST) backend.mergeDoc('polls',ID,{step:0}); });
+    else if(s<QS.length) backend.mergeDoc('polls',ID,{step:s+1,end:false}); });
+  bEnd.addEventListener('click',function(e){ blur(e); if(HOST&&!busy&&step()>0) backend.mergeDoc('polls',ID,{end:true}); });
+  bBack.addEventListener('click',function(e){ blur(e); if(HOST) backend.mergeDoc('polls',ID,{step:0,end:false}); });
   bReset.addEventListener('click',function(e){ blur(e); if(!HOST) return;
     if(confirm('Clear every vote and start the question vote over?')) backend.setDoc('polls',ID,{session:Date.now(),step:0}); });
 
@@ -778,8 +711,8 @@ body{background:#1b211f;}
       c.classList.toggle('picked', !HOST && r>-1); c.setAttribute('data-rank', (!HOST&&r>-1)? r+1 : '');
       b.textContent = (!HOST && r>-1) ? (['1st','2nd','3rd'][r]+' choice') : '';
       var won = s>0 && main.order ? main.order.indexOf(q) : -1;
-      c.classList.toggle('won', won>-1 && won<Math.min(s,3) && s<4);
-      c.setAttribute('data-won', (won>-1&&won<3)? ['1st','2nd','3rd'][won] : '');
+      c.classList.toggle('won', won>-1 && won<s);
+      c.setAttribute('data-won', won>-1 ? SH[won] : '');
       c.disabled = HOST || !!m || s>0; });
     var n = HOST ? votes().length : (main.n||0);
     S.querySelector('[data-iq-n]').textContent = HOST ? n : '';
@@ -793,10 +726,11 @@ body{background:#1b211f;}
         return '<span class="iq-slot'+(q===undefined?'':' on')+'"><i>'+['1st','2nd','3rd'][r]+'</i>'+(q===undefined?'&mdash;':'No. '+(q+1))+'</span>'; }).join('')
         +'<span class="iq-tip">'+(picks.length<3?'Click a question to add it. Click again to remove it.':'Ready when you are.')+'</span>'; }
     bSend.hidden = HOST || !!m || s>0; bSend.disabled = picks.length<3;
-    bRev.hidden = !HOST || s>=4; bReset.hidden = !HOST; bBack.hidden = !HOST || s===0;
+    bRev.hidden = !HOST || s>=QS.length; bReset.hidden = !HOST; bBack.hidden = !HOST || s===0;
+    bEnd.hidden = !HOST || s===0 || ended();
     bRev.disabled = HOST && s===0 && n===0;
-    bRev.textContent = s===0 ? 'Reveal first pick' : s===1 ? 'Reveal second pick' : s===2 ? 'Reveal third pick' : 'Show all three';
-    if(s!==shownStep) show(s, shownStep);
+    bRev.textContent = s===0 ? 'Reveal first pick' : s<QS.length ? 'Reveal '+ORD[s].toLowerCase() : '';
+    var v=view(); if(v!==shownStep) show(v, shownStep);
   }
 
   // ── the reveal ──
@@ -818,25 +752,29 @@ body{background:#1b211f;}
     setTimeout(function(){ el.style.transition=''; el.style.transform=''; el.style.opacity='';
       el.classList.add('in'); setTimeout(function(){ el.classList.add('settled'); cards[q].classList.remove('lift'); }, 1250); }, 30);
   }
-  function summary(animate){ var el=document.createElement('div'); el.className='iq-sum';
-    el.innerHTML='<div class="iq-fk"><span></span>Our three questions<span></span></div>'
-      +[0,1,2].filter(function(r){ return main.order && main.order[r]!==undefined; }).map(function(r){ var q=main.order[r], c=(main.chose||[])[r]||0;
-        return '<div class="iq-srow" style="--d:'+(r*180)+'ms"><span class="iq-sord">'+['1st','2nd','3rd'][r]+'</span><span class="iq-stxt">'+esc(QS[q])+'</span></div>'; }).join('');
+  var NUM=['one','two','three','four','five','six','seven','eight'];
+  function summary(k, animate){ var el=document.createElement('div'); el.className='iq-sum'+(k>4?' many':'');
+    var rs=[]; for(var r=0;r<k;r++) if(main.order && main.order[r]!==undefined) rs.push(r);
+    el.innerHTML='<div class="iq-fk"><span></span>'+(rs.length===1?'Our question':'Our '+NUM[rs.length-1]+' questions')+'<span></span></div><div class="iq-srows" style="grid-template-rows:repeat('+Math.ceil(rs.length/2)+',auto)">'
+      +rs.map(function(r){ var q=main.order[r];
+        return '<div class="iq-srow" style="--d:'+(r*140)+'ms"><span class="iq-sord">'+SH[r]+'</span><span class="iq-stxt">'+esc(QS[q])+'</span></div>'; }).join('')+'</div>';
     stage.appendChild(el); if(animate){ void el.offsetWidth; setTimeout(function(){ el.classList.add('in'); }, 30); } else el.classList.add('in','settled'); }
   function show(s, prev){
     var animate = prev>-1 && S.classList.contains('active');
     shownStep=s; busy=true;
+    clearTimeout(show.t);
     var old=[].slice.call(stage.children);
     old.forEach(function(o){ o.classList.add('out'); });
     var wait = (animate && old.length) ? 650 : 0;
     root.classList.toggle('dim', s>0);
-    setTimeout(function(){ old.forEach(function(o){ if(o.parentNode) o.parentNode.removeChild(o); });
-      if(s>=1 && s<=3 && main.order){ fly(feature(s-1), main.order[s-1], animate); }
-      else if(s===4){ summary(animate); }
+    root.classList.toggle('ending', s>100);
+    show.t=setTimeout(function(){ [].slice.call(stage.children).forEach(function(o){ o.parentNode.removeChild(o); });
+      if(s>=1 && s<=QS.length && main.order){ fly(feature(s-1), main.order[s-1], animate); }
+      else if(s>100){ summary(s-100, animate); }
       busy=false; }, wait);
   }
   // when someone arrives on the slide mid-reveal, lay it out without animation
-  new MutationObserver(function(){ if(S.classList.contains('active') && stage.children.length===0 && step()>0){ shownStep=-1; show(step(),-1); } })
+  new MutationObserver(function(){ if(S.classList.contains('active') && !busy && stage.children.length===0 && step()>0){ shownStep=-1; show(view(),-1); } })
     .observe(S,{attributes:true,attributeFilter:['class']});
 
   window.__deckLiveReady.then(function(L){ backend=L.backend; HOST=!!L.HOST; S.classList.toggle('iq-host',HOST);
